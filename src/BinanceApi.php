@@ -36,10 +36,10 @@ class BinanceApi
      */
     public function __construct($api_key = null, $api_secret = null, $api_url = null, $timing = 10000)
     {
-        $this->api_key = (!empty($api_key)) ? $api_key : config('binance-api.auth.key');
-        $this->api_secret = (!empty($api_secret)) ? $api_secret : config('binance-api.auth.secret');
-        $this->api_url = (!empty($api_url)) ? $api_url : config('binance-api.urls.api');
-        $this->recvWindow = (!empty($timing)) ? $timing : config('binance-api.settings.timing');
+        $this->api_key = (! empty($api_key)) ? $api_key : config('binance-api.auth.key');
+        $this->api_secret = (! empty($api_secret)) ? $api_secret : config('binance-api.auth.secret');
+        $this->api_url = (! empty($api_url)) ? $api_url : config('binance-api.urls.api');
+        $this->recvWindow = (! empty($timing)) ? $timing : config('binance-api.settings.timing');
     }
 
     /**
@@ -243,7 +243,7 @@ class BinanceApi
     public function getOrderStatus($symbol = null, $orderId = null)
     {
         $data = [
-            'symbol'  => $symbol ? strtoupper($symbol) : null,
+            'symbol' => $symbol ? strtoupper($symbol) : null,
             'orderId' => $orderId,
         ];
 
@@ -303,7 +303,7 @@ class BinanceApi
     private function publicRequest($url, $params = [], $method = 'GET')
     {
         // Build the POST data string
-        if (!in_array($url, $this->no_time_needed)) {
+        if (! in_array($url, $this->no_time_needed)) {
             $params['timestamp'] = $this->milliseconds();
             $params['recvWindow'] = $this->recvWindow;
         }
@@ -325,7 +325,7 @@ class BinanceApi
     private function privateRequest($url, $params = [], $method = 'GET')
     {
         // Build the POST data string
-        if (!in_array($url, $this->no_time_needed)) {
+        if (! in_array($url, $this->no_time_needed)) {
             $params['recvWindow'] = $this->recvWindow;
             $params['timestamp'] = $this->milliseconds();
         }
@@ -365,14 +365,14 @@ class BinanceApi
             }
         } catch (ConnectionException $e) {
             return $error = [
-                'code'    => $e->getCode(),
-                'error'   => 'Host Not Found',
+                'code' => $e->getCode(),
+                'error' => 'Host Not Found',
                 'message' => 'Could not resolve host: '.$this->api_url,
             ];
         } catch (Exception $e) {
             return $error = [
-                'code'    => $e->getCode(),
-                'error'   => 'cUrl Error',
+                'code' => $e->getCode(),
+                'error' => 'cUrl Error',
                 'message' => $e->getMessage(),
             ];
         }
