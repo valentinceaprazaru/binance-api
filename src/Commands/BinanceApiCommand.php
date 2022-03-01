@@ -1,12 +1,12 @@
 <?php
 
-namespace VendorName\Skeleton\Commands;
+namespace Valentinceaprazaru\BinanceApi\Commands;
 
 use Illuminate\Console\Command;
 
-class SkeletonCommand extends Command
+class BinanceApiCommand extends Command
 {
-    public $signature = 'skeleton';
+    public $signature = 'binance-api';
 
     public $description = 'My command';
 

@@ -1,17 +1,18 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "valentinceaprazaru/binance-api",
+    "description": "This is my package binance-api",
+    "version": "1.0.2",
     "keywords": [
-        ":vendor_name",
+        "valentinceaprazaru",
         "laravel",
-        ":package_slug"
+        "binance-api"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/valentinceaprazaru/binance-api",
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Valentin Ceaprazaru",
+            "email": "valentin.c@codingheads.com",
             "role": "Developer"
         }
     ],
@@ -34,13 +35,13 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories"
+            "Valentinceaprazaru\\BinanceApi\\": "src",
+            "Valentinceaprazaru\\BinanceApi\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests"
+            "Valentinceaprazaru\\BinanceApi\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -49,15 +50,19 @@
         "test-coverage": "vendor/bin/pest --coverage"
     },
     "config": {
-        "sort-packages": true
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Valentinceaprazaru\\BinanceApi\\BinanceApiServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "BinanceApi": "Valentinceaprazaru\\BinanceApi\\Facades\\BinanceApi"
             }
         }
     },
